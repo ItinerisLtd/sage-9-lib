@@ -1,7 +1,8 @@
-# [Sage](https://roots.io/sage/)
-[![Packagist](https://img.shields.io/packagist/vpre/roots/sage-lib.svg?style=flat-square)](https://packagist.org/packages/roots/sage-lib)
-[![Build Status](https://img.shields.io/travis/roots/sage-lib.svg?style=flat-square)](https://travis-ci.org/roots/sage-lib)
+# [Sage](https://roots.io/sage/) lib (Itineris fork)
+[![Packagist](https://img.shields.io/packagist/v/itinerisltd/sage-lib.svg?style=flat-square)](https://packagist.org/packages/itinerisltd/sage-lib)
 
-Sage is a WordPress starter theme with a modern development workflow.
+Library files for the [Sage 9](https://roots.io/sage/) starter theme.
+
+This is an Itineris fork of the now-archived [roots/sage-lib](https://github.com/roots/sage-lib), maintained to keep legacy Sage 9 projects running on current PHP and Illuminate versions rather than forcing a full migration to Sage 10 + Acorn.
 
 Sage Repo: [https://github.com/roots/sage](https://github.com/roots/sage)
