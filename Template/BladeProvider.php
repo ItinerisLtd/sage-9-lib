@@ -1,67 +1,49 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Roots\Sage\Template;
 
+use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
-use Illuminate\Contracts\Container\Container as ContainerContract;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\View\ViewServiceProvider;
+use Roots\Sage\Container as SageContainer;
 
-/**
- * Class BladeProvider
- */
 class BladeProvider extends ViewServiceProvider
 {
-    /**
-     * @param ContainerContract $container
-     * @param array             $config
-     * @SuppressWarnings(PHPMD.StaticAccess)
-     */
-    public function __construct(ContainerContract $container = null, $config = [])
+    public function __construct(?SageContainer $container = null, array $config = [])
     {
-        /** @noinspection PhpParamsInspection */
-        parent::__construct($container ?: Container::getInstance());
+        parent::__construct($container ?: SageContainer::getInstance());
+
+        Container::setInstance($this->app);
 
         $this->app->bindIf('config', function () use ($config) {
-            return $config;
+            return new Repository($config);
         }, true);
     }
 
-    /**
-     * Bind required instances for the service provider.
-     */
     public function register()
     {
         $this->registerFilesystem();
         $this->registerEvents();
-        $this->registerEngineResolver();
-        $this->registerViewFinder();
-        $this->registerFactory();
+        parent::register();
         return $this;
     }
 
-    /**
-     * Register Filesystem
-     */
     public function registerFilesystem()
     {
         $this->app->bindIf('files', Filesystem::class, true);
         return $this;
     }
 
-    /**
-     * Register the events dispatcher
-     */
     public function registerEvents()
     {
         $this->app->bindIf('events', Dispatcher::class, true);
         return $this;
     }
 
-    /**
-     * Register the view finder implementation.
-     */
     public function registerViewFinder()
     {
         $this->app->bindIf('view.finder', function ($app) {
