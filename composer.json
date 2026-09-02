@@ -2,7 +2,7 @@
   "name": "itinerisltd/sage-lib",
   "license": "MIT",
   "description": "Library files for Sage 9 Starter Theme, maintained by Itineris to support legacy sites",
-  "homepage": "https://github.com/ItinerisLtd/sage-lib",
+  "homepage": "https://github.com/ItinerisLtd/sage-9-lib",
   "authors": [
     {
       "name": "QWp6t",
@@ -28,7 +28,7 @@
     "wordpress"
   ],
   "support": {
-    "issues": "https://github.com/ItinerisLtd/sage-lib/issues",
+    "issues": "https://github.com/ItinerisLtd/sage-9-lib/issues",
     "forum": "https://discourse.roots.io/"
   },
   "autoload": {
